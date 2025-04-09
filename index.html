@@ -50,6 +50,14 @@
       border-radius: 50%;
       animation: pulse 1.5s infinite;
       margin-top: 6px;
+      visibility: hidden;
+    }
+
+    .microphone-status {
+      font-size: 16px;
+      color: white;
+      margin-top: 8px;
+      visibility: hidden;
     }
 
     @keyframes pulse {
@@ -76,7 +84,29 @@
       allow="microphone"
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
     ></iframe>
-    <div class="pulse-circle"></div>
+    <div class="pulse-circle" id="pulseCircle"></div>
+    <div class="microphone-status" id="microphoneStatus">Microphone is in use...</div>
   </div>
+
+  <script>
+	localStorage.setItem('microphone', 'inactive');
+	
+    const pulseCircle = document.getElementById("pulseCircle");
+    const microphoneStatus = document.getElementById("microphoneStatus");
+
+    function checkMicrophoneStatus() {
+      const status = localStorage.getItem('microphone');
+
+      if (status === 'active') {
+        pulseCircle.style.visibility = 'visible';
+        microphoneStatus.style.visibility = 'visible';
+      } else {
+        pulseCircle.style.visibility = 'hidden';
+        microphoneStatus.style.visibility = 'hidden';
+      }
+    }
+
+    setInterval(checkMicrophoneStatus, 500);
+  </script>
 </body>
 </html>
