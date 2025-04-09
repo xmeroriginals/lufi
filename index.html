@@ -5,13 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lufi</title>
   <meta name="description" content="Control Lufi with your voice, A fun, voice-controlled game experience." />
-  <meta name="keywords" content="Lufi, voice game, microphone game, sound controlled game, browser game, iframe game" />
+  <meta name="keywords" content="Lufi, voice game, microphone game, sound controlled game, browser game, iframe game, web game, talk game, shout game, casual game, HTML5 game, fun game, mobile browser game" />
   <meta name="author" content="XmerOriginals" />
+
   <meta property="og:title" content="Lufi - Voice Controlled Game" />
-  <meta property="og:description" content="Play Lufi using your voice, Modern sound-activated browser game experience." />
+  <meta property="og:description" content="Play Lufi using your voice. A modern, sound-activated browser game experience." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xmeroriginals.github.io/lufi/" />
   <meta property="og:image" content="https://xmeroriginals.github.io/lufi/assets/lufipreview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lufi - Voice Controlled Game" />
+  <meta name="twitter:description" content="Play Lufi using your voice. A fun and interactive browser game." />
+  <meta name="twitter:image" content="https://xmeroriginals.github.io/lufi/assets/lufipreview.png" />
+  <meta name="twitter:creator" content="@XmerOriginals" />
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Lufi">
+  <meta name="theme-color" content="#f8b500" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Lufi",
+    "url": "https://xmeroriginals.github.io/lufi/",
+    "image": "https://xmeroriginals.github.io/lufi/assets/lufipreview.png",
+    "author": {
+      "@type": "Organization",
+      "name": "XmerOriginals"
+    },
+    "description": "Lufi is a voice-controlled browser game where your voice controls the action. Fun, modern and mobile-friendly.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "genre": ["Casual", "Voice", "Sound-based", "Web Game"],
+    "playMode": "SinglePlayer"
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="https://xmeroriginals.github.io/lufi/assets/lufilogo.svg" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
@@ -43,23 +75,6 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
-    .pulse-circle {
-      width: 16px;
-      height: 16px;
-      background-color: #ffffff;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-      margin-top: 6px;
-      visibility: hidden;
-    }
-
-    .microphone-status {
-      font-size: 16px;
-      color: white;
-      margin-top: 8px;
-      visibility: hidden;
-    }
-
     @keyframes pulse {
       0% {
         transform: scale(1);
@@ -84,29 +99,6 @@
       allow="microphone"
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
     ></iframe>
-    <div class="pulse-circle" id="pulseCircle"></div>
-    <div class="microphone-status" id="microphoneStatus">Microphone is in use...</div>
   </div>
-
-  <script>
-	localStorage.setItem('microphone', 'inactive');
-	
-    const pulseCircle = document.getElementById("pulseCircle");
-    const microphoneStatus = document.getElementById("microphoneStatus");
-
-    function checkMicrophoneStatus() {
-      const status = localStorage.getItem('microphone');
-
-      if (status === 'active') {
-        pulseCircle.style.visibility = 'visible';
-        microphoneStatus.style.visibility = 'visible';
-      } else {
-        pulseCircle.style.visibility = 'hidden';
-        microphoneStatus.style.visibility = 'hidden';
-      }
-    }
-
-    setInterval(checkMicrophoneStatus, 500);
-  </script>
 </body>
 </html>
